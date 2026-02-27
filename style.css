@@ -1,0 +1,150 @@
+* {
+  /* o asterisco é um seletor universal */
+  margin: 0; /* zera a margem automática do navegador */
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --text-color: rgb(0, 0, 0);
+  --bg-url: url("./assets/fundo-rosa-background.webp");
+  --stroke-color: 2px solid rgba(255, 255, 255, 0.998);
+  --surface-color: rgba(199, 139, 175, 0.142);
+  --surface-color-hover: rgba(138, 101, 131, 0.183);
+  --highlight-color: rgba(138, 101, 131, 0.183);
+  --switch-bg-url: url("assets/suun.svg");
+  --border-color: 1px solid rgba(255, 255, 255, 0.656);
+}
+
+.dark {
+  --text-color: white;
+  --bg-url: url("./assets/Fundos\ de\ telaRosa.jpg");
+  --stroke-color: 1px solid rgb(8, 8, 8);
+  --surface-color: rgba(0, 0, 0, 0.3);
+  --surface-color-hover: rgba(0, 0, 0, 0.5);
+  --highlight-color: rgba(0, 0, 0, 0.5);
+  --switch-bg-url: url("assets/moon-stars.svg");
+  --border-color: 1px solid rgba(0, 0, 0, 0.656);
+}
+
+body {
+  /*para não precisar escrever tudo isso que esta acima, usar da forma que está abaixo, considerando a ordem: color image repeat position/size. A "/" é necessaria do position para o size */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 100%; /* ocupa 100% da largura da tela, ele vai ocupar toda a largura da tela, mesmo se o celular for pequeno ou o desktop for grande, ele se ajusta */
+  min-height: 100vh; /* em qualquer dispositivo o container preenche pelo menos toda a altura visível da tela */
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+#profile img {
+  /* img é um elemento inline, então para usar a "margin; auto", teve que transformar ela em um elemento block. */
+  display: block;
+  width: 112px;
+  margin: auto;
+}
+#profile p {
+  font-weight: 500; /*controla a expessura da fonte */
+  line-height: 24px; /* controla o espaçamento entre as linhas*/
+  margin-top: 8px;
+}
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto; /*para centralizar pois é display block */
+}
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute; /*faz uma sobreposição de camadas */
+  right: 0;
+  left: 0;
+  top: 50%;
+  z-index: 1; /* é como se fosse o andar que ele está */
+  transform: translateY(-50%);
+}
+.dark #switch button {
+  right: 0;
+  left: initial;
+}
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/*parte de links*/
+ul {
+  list-style: none;
+  width: 256px;
+  display: flex; /*precisou ser flex para eu conseguir adicionar um gap*/
+  flex-direction: column; /* para deixar os itens em coluna*/
+  gap: 16px; /*espaço entre meus botões*/
+  margin: 0 auto; /*para centralizar a lista */
+  padding: 24px 0;
+  -webkit-backdrop-filter: blur(4px);
+}
+ul li a {
+  display: flex;
+  justify-content: center; /* pega o conteúdo e alinha ao meio, e só funciona com o display FLEX, se fosse display inline ou block, o text-align CENTER funcionaria também */
+  padding: 16px 24px;
+  align-items: center; /*alinha os ITENS (nesse caso o texto), ao meio da box*/
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px; /*arredondamento da borda*/
+  -webkit-backdrop-filter: blur (4px) brightness(100%); /*coloca um filtro na propriedade, que pode ser blur(desfocar px), brightness (brilho %),contrast (contraste %), saturate (saturação %), sepia (%), e entre outros */ /*o WEBKIT na frente entra para aumentar a compatibiliadade em Safari*/
+  text-decoration: none; /*controla as linhas do texto, underline (sublinhado), overline (linha acima do texto), line-through(linha atravessa o texto), underline overline (linha em cima e em baixo) e none (que remove qualque uma dessas linhas) */
+  font-weight: 500;
+  transition: background 0.2s; /*tempo de transição de determinada coisa, nesse caso, do background do botão quanod o mouse for passadopor cima*/
+  border: var(--border-color);
+}
+ul li a:hover {
+  /* entra na classe de pseudo-selector, aqui NO HOVER vão ser aplicada as propriedades de quando o mouse for passado por cima*/
+  background: var(--surface-color-hover);
+  border: var(--stroke-color);
+}
+#social-links {
+  display: flex; /*novamente para habilitar o GAP*/
+  padding: 24px 0; /* primeiro item é o tamanho da parte superior e inferior, a segunda parte é das laterais, então 24px para cima e baixo, 0 para lateral*/
+  font-size: 24px; /*tamanho dos elementos*/
+  justify-content: center;
+}
+#social-links a 
+/*justify-content + align items forçam o item a ficar no centro vertical do container.*/ {
+  display: flex;
+  align-items: center; /*faz o item se centralizar no eixo cruzado*/
+  justify-content: center; /*faz o item se centralizar no eixo principal*/
+
+  padding: 16px;
+  transition: background 1s;
+}
+#social-links a:hover {
+  padding: 16px;
+
+  background: var(--highlight-color);
+  border-radius: 50%; /*50% é uma bolinha perfeita*/
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}

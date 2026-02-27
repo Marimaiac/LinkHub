@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-br" class="dark">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+      </head>
+      <body>
+      </body>
+    </html>
+    </CSS-->
+    <!-- Fonte importada do Google Fonts (Inter)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- no body entram as infos que aparecerão na tela. O navegador vai usar os recursos definidos no head para renderizar esse conteúdo-->
+    <div id="container">
+      <div id="profile">
+        <img
+          src="./assets/Avatar3.png"
+          alt=" eu sendo lindona"
+        />
+        <p>Mariana Silva</p>
+
+      </div>
+
+      <div id="switch" onclick="toggleMode()" > <!-- onclick significa quando eu clicar no botão, ele executará a função toggleMode (que será definida no JavaScript)--> 
+        <button>
+       </button>
+        <span> </span>
+
+      </div>
+      <ul>
+        <!-- o UL é onde se criam as listas DESORDENADAS-->
+        <li>
+          <!-- é o item da lista-->
+          <a href="https://www.instagram.com/marimaiac/" target="_blank"
+            >Veja meu instagram</a
+          >
+          <!-- é onde adiciona o link-->
+        </li>
+        <li>
+          <a href="https://github.com/Marimaiac" target="_blank">Veja meu GitHub</a>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/marianaclsilva/" target="_blank"
+            >Veja meu Linkedin</a>
+        </li>
+        <li>
+          <a href="./assets/currículo estágio.pdf" target="_blank" >Veja meu currículo</a>
+        </li>
+      </ul>
+      <div id="social-links"> <!-- os écones ficam disponíveis em https://ionic.io/ionicons-->
+       <a href="https://www.instagram.com/marimaiac" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+       </a>
+
+        <a href="https://github.com/Marimaiac" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>
+      </a>
+
+          <a href="https://www.linkedin.com/in/marianaclsilva/"target="_blank">
+          <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+
+          <a href="./assets/currículo estágio.pdf" target="_blank"><ion-icon name="document-outline"></ion-icon>
+          </a>
+
+
+      </div>
+      <footer> 
+        Feito por Mariana Silva ❤
+      </footer>
+    <!-- indo em source no https://ionic.io/ionicons, aparece exatamente o código e onde será utilizado, APENAS SE FOR USAR ÍCONES-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="./script.js" ></script> <!-- para adicionar o javaScript ao projeto-->
+  </body>
+</html>
